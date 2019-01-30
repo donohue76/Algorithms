@@ -3,15 +3,15 @@ def binary_search(list, item):
 	low = 0
 	high = len(list)-1
 
-	while low <= high:
-		mid = (low + high)
+	while low <= high: #while you haven't narrowed the search to one element...
+		mid = (low + high) #check the middle element
 		guess = list[mid]
-		if guess == item:
+		if guess == item: #Found the item
 			return mid
-		if guess > item:
+		if guess > item: #If the guess is too high
 			high = mid -1
-		else:
-			low = mid + 1
-	return None
+		else: #if the guess is too low
+			low = mid + 1 
+	return None #If the item doesn't exist
 
 my_list = [1, 3, 5, 7, 9, 11, 13, 15] 
