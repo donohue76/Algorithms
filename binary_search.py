@@ -14,4 +14,8 @@ def binary_search(list, item):
 			low = mid + 1 
 	return None #If the item doesn't exist
 
-my_list = [1, 3, 5, 7, 9, 11, 13, 15] 
+my_list = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 23, 25, 29, 31, 37, 43, 47, 51, 52, 53, 54, 57, 58, 61]
+
+print(binary_search(my_list, 13))
+print(binary_search(my_list, 7))
+print(binary_search(my_list, 58))
