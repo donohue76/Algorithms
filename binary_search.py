@@ -1,21 +1,40 @@
-def binary_search(list, item):
-	#low and high keep track of which part of the list you're searching in
-	low = 0
-	high = len(list)-1
+# Python Program for recursive binary search. 
 
-	while low <= high: #while you haven't narrowed the search to one element...
-		mid = (low + high) #check the middle element
-		guess = list[mid]
-		if guess == item: #Found the item
-			return mid
-		if guess > item: #If the guess is too high
-			high = mid -1
-		else: #if the guess is too low
-			low = mid + 1 
-	return None #If the item doesn't exist
+# Returns index of x in arr if present, else -1 
+def binarySearch (arr, l, r, x):
+# where arr is the array, l is the left starting point, r is the right end point and x is item we are looking for 
 
-my_list = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 23, 25, 29, 31, 37, 43, 47, 51, 52, 53, 54, 57, 58, 61]
+	# Check base case 
+	if r >= l: 
 
-print(binary_search(my_list, 13))
-print(binary_search(my_list, 7))
-print(binary_search(my_list, 58))
+		mid = l + (r - l)/2
+
+		# If element is present at the middle itself 
+		if arr[mid] == x: 
+			return mid 
+		
+		# If element is smaller than mid, then it 
+		# can only be present in left subarray 
+		elif arr[mid] > x: 
+			return binarySearch(arr, l, mid-1, x) 
+
+		# Else the element can only be present 
+		# in right subarray 
+		else: 
+			return binarySearch(arr, mid + 1, r, x) 
+
+	else: 
+		# Element is not present in the array 
+		return -1
+
+# Test array 
+arr = [ 2, 3, 4, 10, 40 ] 
+x = 40
+
+# Function call 
+result = binarySearch(arr, 0, len(arr)-1, x) 
+
+if result != -1: 
+	print "Element is present at index % d" % result 
+else: 
+	print "Element is not present in array"
